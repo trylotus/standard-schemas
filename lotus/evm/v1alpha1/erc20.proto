@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package lotus.evm.v1alpha1;
+
+import "lotus/v1alpha1/lotus.proto";
+
+option go_package = "github.com/trylotus/protos/lotus/evm/v1alpha1;evm";
+
+message ERC20 {
+  string address = 1 [(lotus.v1alpha1.scalar) = "lotus.AddressString"];
+  string name = 2;
+  string symbol = 3;
+  uint32 decimals = 4;
+  string total_supply = 5 [(lotus.v1alpha1.scalar) = "lotus.Dec"];
+}

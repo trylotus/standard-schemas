@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package lotus.staking.v1alpha1;
+
+import "google/protobuf/timestamp.proto";
+import "lotus/v1alpha1/lotus.proto";
+
+option go_package = "github.com/trylotus/protos/lotus/staking/v1alpha1;staking";
+
+message RewardDistribution {
+  google.protobuf.Timestamp timestamp = 1;
+  string distribution_id = 2;
+  repeated string recipient_addresses = 3 [(lotus.v1alpha1.scalar) = "lotus.AddressString"];
+  repeated string reward_amounts = 4 [(lotus.v1alpha1.scalar) = "lotus.Dec"];
+}

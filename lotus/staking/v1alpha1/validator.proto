@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package lotus.staking.v1alpha1;
+
+import "lotus/v1alpha1/lotus.proto";
+
+option go_package = "github.com/trylotus/protos/lotus/staking/v1alpha1;staking";
+
+message Validator {
+  string validator_address = 1 [(lotus.v1alpha1.scalar) = "lotus.AddressString"];
+  string total_stake = 2 [(lotus.v1alpha1.scalar) = "lotus.Dec"];
+  string commission_rate = 3 [(lotus.v1alpha1.scalar) = "lotus.Dec"];
+  bool is_active = 4;
+}

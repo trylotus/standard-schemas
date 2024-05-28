@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package lotus.exchange.v1alpha1;
+
+import "lotus/v1alpha1/lotus.proto";
+
+option go_package = "github.com/trylotus/protos/lotus/exchange/v1alpha1;exchange";
+
+message LiquidityPool {
+  string pool_id = 1;
+  repeated string token_addresses = 2 [(lotus.v1alpha1.scalar) = "lotus.AddressString"];
+  repeated string token_reserves = 3 [(lotus.v1alpha1.scalar) = "lotus.Dec"];
+  string lp_token_address = 4 [(lotus.v1alpha1.scalar) = "lotus.AddressString"];
+  string lp_token_supply = 5 [(lotus.v1alpha1.scalar) = "lotus.Dec"];
+  string pool_fee = 6 [(lotus.v1alpha1.scalar) = "lotus.Dec"];
+}

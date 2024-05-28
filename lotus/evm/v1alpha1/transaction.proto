@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package lotus.evm.v1alpha1;
+
+import "google/protobuf/timestamp.proto";
+import "lotus/v1alpha1/lotus.proto";
+
+option go_package = "github.com/trylotus/protos/lotus/evm/v1alpha1;evm";
+
+message Transaction {
+  google.protobuf.Timestamp timestamp = 1;
+  string from_address = 2 [(lotus.v1alpha1.scalar) = "lotus.AddressString"];
+  string to_address = 3 [(lotus.v1alpha1.scalar) = "lotus.AddressString"];
+  string value = 4 [(lotus.v1alpha1.scalar) = "lotus.Dec"];
+  string gas_price = 5 [(lotus.v1alpha1.scalar) = "lotus.Dec"];
+  uint64 gas_limit = 6;
+  bytes data = 7;
+  uint64 nonce = 8;
+}

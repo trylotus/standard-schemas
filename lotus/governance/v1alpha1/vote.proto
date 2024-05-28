@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package lotus.governance.v1alpha1;
+
+import "google/protobuf/timestamp.proto";
+import "lotus/v1alpha1/lotus.proto";
+
+option go_package = "github.com/trylotus/protos/lotus/governance/v1alpha1;governance";
+
+message Vote {
+  google.protobuf.Timestamp timestamp = 1;
+  string voter_address = 2 [(lotus.v1alpha1.scalar) = "lotus.AddressString"];
+  string proposal_id = 3;
+  string vote_option = 4;
+}

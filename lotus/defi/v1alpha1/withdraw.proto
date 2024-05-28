@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package lotus.defi.v1alpha1;
+
+import "google/protobuf/timestamp.proto";
+import "lotus/v1alpha1/lotus.proto";
+
+option go_package = "github.com/trylotus/protos/lotus/defi/v1alpha1;defi";
+
+message Withdraw {
+  google.protobuf.Timestamp timestamp = 1;
+  string user_address = 2 [(lotus.v1alpha1.scalar) = "lotus.AddressString"];
+  string withdraw_id = 3;
+  string amount = 4 [(lotus.v1alpha1.scalar) = "lotus.Dec"];
+  string platform = 5;
+}

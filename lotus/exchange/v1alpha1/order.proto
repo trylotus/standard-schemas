@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package lotus.exchange.v1alpha1;
+
+import "google/protobuf/timestamp.proto";
+import "lotus/v1alpha1/lotus.proto";
+
+option go_package = "github.com/trylotus/protos/lotus/exchange/v1alpha1;exchange";
+
+enum OrderType {
+  ORDER_TYPE_UNSPECIFIED = 0;
+  ORDER_TYPE_LIMIT = 1;
+  ORDER_TYPE_MARKET = 2;
+}
+
+enum OrderStatus {
+  ORDER_STATUS_UNSPECIFIED = 0;
+  ORDER_STATUS_OPEN = 1;
+  ORDER_STATUS_FILLED = 2;
+  ORDER_STATUS_CANCELLED = 3;
+}
+
+message Order {
+  google.protobuf.Timestamp timestamp = 1;
+  string maker_address = 2 [(lotus.v1alpha1.scalar) = "lotus.AddressString"];
+  string order_id = 3;
+  string token_address = 4 [(lotus.v1alpha1.scalar) = "lotus.AddressString"];
+  string amount = 5 [(lotus.v1alpha1.scalar) = "lotus.Dec"];
+  string price = 6 [(lotus.v1alpha1.scalar) = "lotus.Dec"];
+  OrderType order_type = 7;
+  OrderStatus order_status = 8;
+}

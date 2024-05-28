@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package lotus.staking.v1alpha1;
+
+import "google/protobuf/timestamp.proto";
+import "lotus/v1alpha1/lotus.proto";
+
+option go_package = "github.com/trylotus/protos/lotus/staking/v1alpha1;staking";
+
+message Staking {
+  google.protobuf.Timestamp timestamp = 1;
+  string staker_address = 2 [(lotus.v1alpha1.scalar) = "lotus.AddressString"];
+  string amount = 3 [(lotus.v1alpha1.scalar) = "lotus.Dec"];
+  uint64 staking_duration = 4;
+  string reward_amount = 5 [(lotus.v1alpha1.scalar) = "lotus.Dec"];
+}
