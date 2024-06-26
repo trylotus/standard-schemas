@@ -48,4 +48,4 @@ Contributions to this protobuf registry are welcome! If you find any issues or h
 
 ## License
 
-This repository is licensed under the ???.
+This repository is licensed under the MIT license.
