@@ -1,6 +1,9 @@
-# Lotus Proto Files
+# Lotus Standard Schemas 
 
 This repository contains the protobuf definitions for the Lotus project. It provides a standardized set of data structures and interfaces for data stored in blockchains.
+
+## Why Protobuf?
+[Protocol Buffers](https://protobuf.dev/) are free and open-source, language-neutral, platform-neutral extensible mechanisms for serializing structured data. Invented by Google, they're now commonly used in various applications, particularly in microservices architectures and for data storage. Protobuf offers several advantages: it's more efficient than text-based formats like JSON, providing smaller message sizes and faster parsing; it's strongly typed, catching errors at compile-time; it supports backwards compatibility and versioning; and it's language-agnostic, enabling interoperability between different systems. While there are potentially more storage/performance optimized serialization formats, Protobuf strikes a balance between efficiency, ease of use, and widespread adoption, making it a solid choice for many projects where structured data needs to be serialized and transmitted efficiently. 
 
 ## Directory Structure
 
