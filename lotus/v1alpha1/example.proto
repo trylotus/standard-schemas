@@ -5,8 +5,10 @@ package example;
 import "lotus.proto";
 
 message Example {
-  option (lotus.v1alpha1.composite_index) = { fields: [ "hash", "serial" ] };
-  option (lotus.v1alpha1.composite_index) = { fields: [ "big_int", "big_dec" ] };
+  option (lotus.v1alpha1.composite_index) = { indexes: [
+    { fields: [ "hash", "serial" ] },
+    { fields: [ "big_int", "big_dec" ] } 
+  ]};
 
   uint32 id = 1 [ (lotus.v1alpha1.index) = { primary: true; } ];
   string email = 2 [ (lotus.v1alpha1.index) = { unique: true; type: INDEX_TYPE_UNORDERED } ];
