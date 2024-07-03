@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package example;
+
+import "lotus.proto";
+
+message Example {
+  option (lotus.v1alpha1.composite).index = { fields: [ "hash", "serial" ] };
+  option (lotus.v1alpha1.composite).index = { fields: [ "big_int", "big_dec" ] };
+
+  uint32 id = 1 [ (lotus.v1alpha1.index) = { unique: true } ];
+  string email = 2 [ (lotus.v1alpha1.index) = { unique: true; type: INDEX_TYPE_UNORDERED } ];
+  bytes hash = 3 [ (lotus.v1alpha1.bytes).format = FORMAT_TYPE_HEX ];
+  string serial = 4 [ (lotus.v1alpha1.numeric) = { precision: 78 } ]; // int256
+  string big_int = 5 [ (lotus.v1alpha1.numeric) = { precision: 1000 } ];
+  string big_dec = 6 [ (lotus.v1alpha1.numeric) = {} ];
+}
